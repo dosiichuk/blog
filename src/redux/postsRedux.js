@@ -1,6 +1,7 @@
 //selectors
+export const getAllPosts = (state) => state.posts;
 
-//actions
+//actions creators
 const createActionName = (actionName) => `app/posts/${actionName}`;
 
 //subreducer
