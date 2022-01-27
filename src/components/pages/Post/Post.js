@@ -1,12 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import ModalRemovePost from '../../views/ModalRemovePost/ModalRemovePost';
+
 import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import styles from './Post.module.scss';
+
 import { getPostById, deletePost } from '../../../redux/postsRedux';
+import ModalRemovePost from '../../views/ModalRemovePost/ModalRemovePost';
+import styles from './Post.module.scss';
 
 const Post = (props) => {
   const [showModal, setShowModal] = useState(false);

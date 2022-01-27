@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import styles from './IndividualPost.module.scss';
 

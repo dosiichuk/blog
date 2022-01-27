@@ -1,6 +1,8 @@
-import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
+
+import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+
 import Posts from '../../features/Posts/Posts';
 import styles from './Home.module.scss';
 

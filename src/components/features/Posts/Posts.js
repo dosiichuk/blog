@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
+import Row from 'react-bootstrap/Row';
+
 import { getAllPosts } from '../../../redux/postsRedux';
 import IndividualPost from '../../views/IndividualPost/IndividualPost';
-import Row from 'react-bootstrap/Row';
 
 const Posts = (props) => {
   const posts = useSelector(getAllPosts);
