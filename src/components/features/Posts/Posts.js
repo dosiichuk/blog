@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import { getAllPosts } from '../../../redux/postsRedux';
 import IndividualPost from '../../views/IndividualPost/IndividualPost';
 
-const Posts = (props) => {
+const Posts = () => {
   const posts = useSelector(getAllPosts);
   return (
     <Row className="mt-4">

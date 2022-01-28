@@ -1,6 +1,8 @@
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
+import PropTypes from 'prop-types';
+
 const ModalRemovePost = ({ show, handleShow, handleClose, removePost }) => {
   return (
     <>
@@ -23,6 +25,13 @@ const ModalRemovePost = ({ show, handleShow, handleClose, removePost }) => {
       </Modal>
     </>
   );
+};
+
+ModalRemovePost.propTypes = {
+  show: PropTypes.bool.isRequired,
+  handleShow: PropTypes.func.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  removePost: PropTypes.func.isRequired,
 };
 
 export default ModalRemovePost;

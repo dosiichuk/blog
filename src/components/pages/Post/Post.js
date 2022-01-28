@@ -9,7 +9,7 @@ import { getPostById, deletePost } from '../../../redux/postsRedux';
 import ModalRemovePost from '../../views/ModalRemovePost/ModalRemovePost';
 import styles from './Post.module.scss';
 
-const Post = (props) => {
+const Post = () => {
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();

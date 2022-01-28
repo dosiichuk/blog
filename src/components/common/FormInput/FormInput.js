@@ -1,4 +1,5 @@
 import Form from 'react-bootstrap/Form';
+import PropTypes from 'prop-types';
 
 //reusable form input
 const FormInput = ({
@@ -20,6 +21,15 @@ const FormInput = ({
       />
     </Form.Group>
   );
+};
+
+FormInput.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
+  type: PropTypes.string,
 };
 
 export default FormInput;

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Posts from '../../features/Posts/Posts';
 import styles from './Home.module.scss';
 
-const Home = (props) => {
+const Home = () => {
   return (
     <Container>
       <div className={styles.homeHeader}>

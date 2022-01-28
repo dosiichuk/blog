@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+
+import PropTypes from 'prop-types';
 import styles from './IndividualPost.module.scss';
 
 const IndividualPost = ({
@@ -33,6 +35,14 @@ const IndividualPost = ({
       </Card>
     </Col>
   );
+};
+
+IndividualPost.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  publishedDate: PropTypes.string.isRequired,
+  shortDescription: PropTypes.string.isRequired,
 };
 
 export default IndividualPost;
