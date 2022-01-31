@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import { dateToStr } from '../../../utils/dateToStr';
 
 import PropTypes from 'prop-types';
+
 import styles from './IndividualPost.module.scss';
 
 const IndividualPost = ({
@@ -25,7 +27,7 @@ const IndividualPost = ({
           </div>
           <Card.Text>
             <span className={styles.postDetails}>Published: </span>
-            {publishedDate}
+            {dateToStr(publishedDate)}
           </Card.Text>
           <Card.Text>{shortDescription}</Card.Text>
           <Button className="btn-primary" as={Link} to={`/post/${id}`}>
@@ -41,7 +43,7 @@ IndividualPost.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  publishedDate: PropTypes.string.isRequired,
+  publishedDate: PropTypes.instanceOf(Date).isRequired,
   shortDescription: PropTypes.string.isRequired,
 };
 
