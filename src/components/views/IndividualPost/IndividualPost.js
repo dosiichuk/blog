@@ -14,20 +14,25 @@ const IndividualPost = ({
   title,
   author,
   publishedDate,
+  category,
   shortDescription,
 }) => {
   return (
     <Col className="mb-4" xs={12} md={6} lg={4}>
-      <Card className="w-100 text-left rounded" style={{ width: '18rem' }}>
+      <Card className="w-100 text-left rounded">
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <div>
             <span className={styles.postDetails}>Author: </span>
             {author}
           </div>
-          <Card.Text>
+          <div>
             <span className={styles.postDetails}>Published: </span>
             {dateToStr(publishedDate)}
+          </div>
+          <Card.Text>
+            <span className={styles.postDetails}>Category: </span>
+            {category}
           </Card.Text>
           <Card.Text>{shortDescription}</Card.Text>
           <Button className="btn-primary" as={Link} to={`/post/${id}`}>
@@ -44,6 +49,7 @@ IndividualPost.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   publishedDate: PropTypes.instanceOf(Date).isRequired,
+  category: PropTypes.string.isRequired,
   shortDescription: PropTypes.string.isRequired,
 };
 

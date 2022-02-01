@@ -2,19 +2,23 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Row } from 'react-bootstrap';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import ReactQuill from 'react-quill';
 import DatePicker from 'react-datepicker';
+import { getAllCategories } from '../../../redux/categoriesRedux';
 import 'react-quill/dist/quill.snow.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const PostForm = ({ action, actionText, ...props }) => {
+  const categories = useSelector((state) => getAllCategories(state));
   const [title, setTitle] = useState(props.title || '');
   const [author, setAuthor] = useState(props.author || '');
   const [publishedDate, setPublishedDate] = useState(
     props.publishedDate || new Date()
   );
+  const [category, setCategory] = useState(props.category || categories[0]);
   const [shortDescription, setShortDescription] = useState(
     props.shortDescription || ''
   );
@@ -31,7 +35,14 @@ const PostForm = ({ action, actionText, ...props }) => {
     setContentError(!content);
     setDateError(!publishedDate);
     if (content && publishedDate) {
-      action({ title, author, publishedDate, shortDescription, content });
+      action({
+        title,
+        author,
+        publishedDate,
+        category,
+        shortDescription,
+        content,
+      });
       setTitle('');
       setAuthor('');
       setPublishedDate('');
@@ -94,6 +105,22 @@ const PostForm = ({ action, actionText, ...props }) => {
               Date is required
             </small>
           )}
+        </Form.Group>
+      </Row>
+      <Row>
+        <Form.Group className="mb-3 col-12 col-md-6 metadata">
+          <Form.Label>Category</Form.Label>
+          <Form.Select
+            name="category"
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+          >
+            {categories.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </Form.Select>
         </Form.Group>
       </Row>
       <Form.Group className="mb-3" controlId="shortDescription">

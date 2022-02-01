@@ -6,7 +6,13 @@ const ADD_POST = createActionName('ADD_POST');
 const EDIT_POST = createActionName('EDIT_POST');
 
 //selectors
-export const getAllPosts = ({ posts }) => posts;
+export const getAllPosts = ({ posts }, category = null) => {
+  if (!category) {
+    return posts;
+  } else {
+    return posts.filter((post) => post.category === category);
+  }
+};
 export const getPostById = ({ posts }, postId) =>
   posts.find((post) => post.id === postId);
 
